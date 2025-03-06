@@ -11,9 +11,8 @@
 | first_name         | string  | null: false |
 | last_name_kana     | string  | null: false |
 | first_name_kana    | string  | null: false |
-| bday_year          | date    | null: false |
-| bday_month         | date    | null: false |
-| bday_day           | date    | null: false |
+| birthday           | date    | null: false |
+
 
 ### Association
 
@@ -57,7 +56,7 @@ has_one :shipping_address
 
 | Column              | Type       | Options     |
 | ------------------- | ---------- | ----------- |
-| order_id            | references | null: false, foreign_key: true|
+| order               | references | null: false, foreign_key: true|
 | postal_code         | string     | null: false |
 | prefecture_id       | integer    | null: false |
 | city                | string     | null: false |
