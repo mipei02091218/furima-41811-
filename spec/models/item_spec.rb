@@ -11,12 +11,12 @@ RSpec.describe Item, type: :model do
         expect(@item).to be_valid
       end
     end
-    
+
     context '商品が出品できない場合' do
       it 'nameが空だと出品できない' do
         @item.name = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include( "Name can't be blank")
+        expect(@item.errors.full_messages).to include("Name can't be blank")
       end
       it 'descriptionが空だと出品できない' do
         @item.description = ''
@@ -31,17 +31,17 @@ RSpec.describe Item, type: :model do
       it 'priceが300円未満だと出品できない' do
         @item.price = '299'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price ¥300〜¥9,999,999の範囲で入力してください（半角数字のみ）")
+        expect(@item.errors.full_messages).to include('Price ¥300〜¥9,999,999の範囲で入力してください（半角数字のみ）')
       end
       it 'priceが9,999,999円を超えると出品できない' do
         @item.price = '10,000,000'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price ¥300〜¥9,999,999の範囲で入力してください（半角数字のみ）")
+        expect(@item.errors.full_messages).to include('Price ¥300〜¥9,999,999の範囲で入力してください（半角数字のみ）')
       end
       it 'priceが半角数字でないと出品できない' do
         @item.price = '１０００'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price ¥300〜¥9,999,999の範囲で入力してください（半角数字のみ）")
+        expect(@item.errors.full_messages).to include('Price ¥300〜¥9,999,999の範囲で入力してください（半角数字のみ）')
       end
       it 'imageが添付されていないと出品できない' do
         @item.image = nil
@@ -76,7 +76,7 @@ RSpec.describe Item, type: :model do
       it 'userが紐づいていないと出品できない' do
         @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("User must exist")
+        expect(@item.errors.full_messages).to include('User must exist')
       end
     end
   end
