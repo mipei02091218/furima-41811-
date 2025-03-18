@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index]
 
   def index
   end
@@ -15,9 +15,6 @@ class ItemsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def show
   end
 
   private

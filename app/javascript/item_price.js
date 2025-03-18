@@ -6,11 +6,10 @@ const profitDom = document.getElementById("profit");
 
 priceInput.addEventListener("input", function() {
   const price = Number(priceInput.value) 
-  const tax = price * 0.1;
-  const taxRounded = Math.floor(tax);
-  const profit = price - taxRounded;
+  const tax = Math.floor(price * 0.1);
+  const profit = price - tax;
   
-  addTaxDom.innerHTML = `¥${taxRounded}`; 
+  addTaxDom.innerHTML = `¥${tax}`; 
   profitDom.innerHTML = `¥${profit}`; 
 })
 
