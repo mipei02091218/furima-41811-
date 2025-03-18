@@ -7,7 +7,7 @@ const profitDom = document.getElementById("profit");
 priceInput.addEventListener("input", function() {
   const price = Number(priceInput.value) 
   const tax = Math.floor(price * 0.1);
-  const profit = price - tax;
+  const profit = Math.floor(price - tax);
   
   addTaxDom.innerHTML = `¥${tax}`; 
   profitDom.innerHTML = `¥${profit}`; 
