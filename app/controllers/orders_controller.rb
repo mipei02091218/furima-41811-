@@ -3,10 +3,6 @@ class OrdersController < ApplicationController
   before_action :set_item
   before_action :restrict_access
 
-  def new
-    @order_form = OrderForm.new
-  end
-
   def index
     gon.public_key = ENV['PAYJP_PUBLIC_KEY']
     @order_form = OrderForm.new

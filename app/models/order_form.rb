@@ -8,6 +8,7 @@ class OrderForm
     validates :phone, length: { in: 10..11, message: 'is too short' },
                       format: { with: /\A\d+\z/, message: 'is invalid.Input only number.(半角数字のみ)' }
     validates :user_id
+    validates :item_id
     validates :token
     validates :city
     validates :street
