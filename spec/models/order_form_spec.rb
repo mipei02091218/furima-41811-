@@ -17,12 +17,13 @@ RSpec.describe OrderForm, type: :model do
         expect(@order_form).to be_valid
       end
     end
-    
+
     context '購入できない場合' do
       it 'postal_codeが空では購入できない' do
         @order_form.postal_code = ''
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include("Postal code can't be blank", "Postal code is invalid.Enter it as follows (e.g. 123-4567)")
+        expect(@order_form.errors.full_messages).to include("Postal code can't be blank",
+                                                            'Postal code is invalid.Enter it as follows (e.g. 123-4567)')
       end
       it 'prefecture_idが「---」では購入できない' do
         @order_form.prefecture_id = 1
@@ -47,17 +48,17 @@ RSpec.describe OrderForm, type: :model do
       it 'phoneが10桁未満では購入できない' do
         @order_form.phone = '12345678'
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include("Phone is too short")
+        expect(@order_form.errors.full_messages).to include('Phone is too short')
       end
       it 'phoneにハイフンが含まれると購入できない' do
         @order_form.phone = '090-1234-1234'
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include("Phone is invalid.Input only number.(半角数字のみ)")
+        expect(@order_form.errors.full_messages).to include('Phone is invalid.Input only number.(半角数字のみ)')
       end
       it 'phoneが半角数字でなければ購入できない' do
         @order_form.phone = '１２３４５６７８９１２'
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include("Phone is invalid.Input only number.(半角数字のみ)")
+        expect(@order_form.errors.full_messages).to include('Phone is invalid.Input only number.(半角数字のみ)')
       end
       it 'tokenが空では購入できない' do
         @order_form.token = nil

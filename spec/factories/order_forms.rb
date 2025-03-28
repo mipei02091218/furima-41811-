@@ -10,7 +10,7 @@ FactoryBot.define do
 
     after(:build) do |order_form|
       order_form.user_id = FactoryBot.create(:user).id
-      order_form.item_id = FactoryBot.create(:item).id 
+      order_form.item_id = FactoryBot.create(:item).id
     end
   end
 end
